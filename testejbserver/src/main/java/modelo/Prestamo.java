@@ -21,7 +21,7 @@ public class Prestamo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "codigo")
 	private int codigo;
-
+	
 	@Column(name = "fechaInicio")
 	@Temporal(TemporalType.DATE)
 	private Date fechaInicio;
