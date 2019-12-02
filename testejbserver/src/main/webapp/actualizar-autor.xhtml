@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+	<h1>Actualizar autor</h1>
+	<h3>Busqueda por nombre</h3>
+	<h:form>
+		Nombre Autor: <h:inputText value="#{busquedaAutoresBean.nombre}" />
+		<h:commandButton action="#{busquedaAutoresBean.buscar()}" value="Buscar" />
+		<h:panelGrid columns="2">
+			<h:dataTable value="#{busquedaAutoresBean.autores}" var="autor">			
+				<h:column>
+					#{autor.nombre}
+					<f:facet name="header">Nombre</f:facet>
+				</h:column>
+				
+				<h:column>
+					#{autor.nacionalidad}
+					<f:facet name="header">Nacionalidad</f:facet>
+				</h:column>
+			</h:dataTable>	
+		</h:panelGrid>
+		<h:panelGrid columns="3">
+			<h:column>
+					<h:outputLabel for="Nombre" value="Nombre" />	
+					<h:inputText value="#{gestionAutoresBean.autor.nombre}" />  
+					<f:facet name="header">Nombre</f:facet>
+			</h:column>
+			<h:column>
+					<h:outputLabel for="Nacionalidad" value="Nacionalidad" />	
+					<h:inputText value="#{gestionAutoresBean.autor.nacionalidad}" />  
+					<f:facet name="header">Nacionalidad</f:facet>
+			</h:column>
+		</h:panelGrid>
+		<h:commandButton action="#{gestionAutoresBean.actualizarAutor()}" value="Actualizar" />
+	</h:form> 
+
+</body> 
+</html>

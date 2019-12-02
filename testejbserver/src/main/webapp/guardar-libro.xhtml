@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+	<!-- Crear formulario, relacionado con el GestionLibrosBean -->
+	<h2>Guardar Libro</h2>
+	<h:form>
+		<h:panelGrid columns="9">	
+			<h:outputLabel for="txtIsbn" value="ISBN" />
+			<h:inputText id="txtIsbn" value="#{gestionLibrosBean.libro.isbn}" />
+			<h:message for="txtIsbn"/>
+			
+			<h:outputLabel for="txtTitulo" value="Titulo" />
+			<h:inputText id="txtTitulo" value="#{gestionLibrosBean.libro.titulo}" />
+			<h:message for="txtTitulo"/>
+			
+			<h:outputLabel for="txtAnio" value="Año" />
+			<h:inputText id="txtAnio" value="#{gestionLibrosBean.libro.anio}" />
+			<h:message for="txtAnio"/>
+			
+			<h:outputLabel for="txtDescripcion" value="Descripion" />
+			<h:inputText id="txtDescripcion" value="#{gestionLibrosBean.libro.descripcion}" />
+			<h:message for="txtDescripcion"/>
+			
+			<h:outputLabel for="txtPaginas" value="Numero de paginas" />
+			<h:inputText id="txtPaginas" value="#{gestionLibrosBean.libro.numeroPaginas}" />
+			<h:message for="txtPaginas"/>
+			
+			<h:outputLabel for="txtIdioma" value="Idioma" />
+			<h:inputText id="txtIdioma" value="#{gestionLibrosBean.libro.idioma}" />
+			<h:message for="txtIdioma"/>
+			
+			<h:outputLabel value="Autor" />
+			<h:dataTable value="#{gestionLibrosBean.libro.autor}" var="autor">
+				<h:column>
+					<f:facet name="header">Codigo</f:facet>
+					<h:inputText value="#{autor.codigo}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nombre</f:facet>
+					<h:inputText value="#{autor.nombre}" />
+				</h:column>
+			</h:dataTable>
+			
+			<h:outputLabel value="Categoria" />
+			<h:dataTable value="#{gestionLibrosBean.libro.categoria}" var="categoria">
+				<h:column>
+					<f:facet name="header">Codigo</f:facet>
+					<h:inputText value="#{categoria.codigo}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nombre</f:facet>
+					<h:inputText value="#{categoria.nombre}" />
+				</h:column>
+			</h:dataTable>
+		</h:panelGrid>
+		<h:outputText value=""/>
+			<h:commandButton action="#{gestionLibrosBean.guardarLibro()}" value="Guardar" />
+	</h:form> 
+</body> 
+</html>

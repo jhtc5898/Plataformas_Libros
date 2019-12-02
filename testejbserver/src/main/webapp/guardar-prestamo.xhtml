@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+	<h2>Realizar Prestamo</h2>
+	<h:form>
+		<h:panelGrid columns="4">
+			<h:outputLabel value="Usuario" />
+			<h:dataTable value="#{gestionPrestamosBean.prestamo.usuario}" var="usuario">
+				<h:column>
+					<f:facet name="header">Cedula</f:facet>
+					<h:inputText value="#{usuario.cedula}" />
+				</h:column>
+			</h:dataTable>
+			
+			<h:outputLabel value="Libro" />
+			<h:dataTable value="#{gestionPrestamosBean.prestamo.libro}" var="libro">
+				<h:column>
+					<f:facet name="header">Libro</f:facet>
+					<h:inputText value="#{libro.codigo}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Nombre</f:facet>
+					<h:inputText value="#{libro.titulo}" />
+				</h:column>
+			</h:dataTable>
+			
+			<h:outputLabel for="Fecha Inicio" value="Fecha Inicio" />	
+			<h:inputText value="#{gestionPrestamosBean.prestamo.fechaInicio}">  
+   				<f:convertDateTime pattern="yyyy-MM-dd"/>  
+			</h:inputText>
+         	
+         	<h:outputLabel for="Fecha Fin" value="Fecha Finalizacion" />	
+			<h:inputText value="#{gestionPrestamosBean.prestamo.fechaFin}">  
+   				<f:convertDateTime pattern="yyyy-MM-dd"/>  
+			</h:inputText>
+			
+			<h:outputText value=""/>
+			<h:commandButton action="#{gestionPrestamosBean.guardarPrestamo()}" value="Guardar" />
+		</h:panelGrid>
+	</h:form> 
+</body> 
+</html>
