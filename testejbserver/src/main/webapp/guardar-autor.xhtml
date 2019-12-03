@@ -4,10 +4,15 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head></h:head> 
+<h:head>
+<title>Guardar Autor</title>
+<style type="text/css">
+  h2 { color: green }
+</style>
+</h:head> 
 <body> 
 <!-- Crear formulario, relacionado con el GestionAutoresBean -->
-	<h2>Guardar Autor</h2>
+	<h2>Guardar Autores</h2>
 	<h:form>
 		<h:panelGrid columns="3">
 			<h:outputLabel for="txtNombre" value="Nombre" />
@@ -17,6 +22,7 @@
 			<h:outputLabel for="txtNacionalidad" value="Nacionalidad" />
 			<h:inputText id="txtNacionalidad" value="#{gestionAutoresBean.autor.nacionalidad}" />
 			<h:message for="txtNacionalidad"/>
+			
 			
 			<h:outputText value=""/>
 			<h:commandButton action="#{gestionAutoresBean.guardarAutor()}" value="Guardar" />	
