@@ -14,6 +14,8 @@ import modelo.Usuario;
 @Stateless
 public class AutorDAO {
 
+
+	
 	@Inject
 	private EntityManager em;
 	
